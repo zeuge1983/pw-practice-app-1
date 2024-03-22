@@ -116,7 +116,7 @@ test('Extracting values', async ({page}) => {
 })
 
 test('Assertions',async ({page}) => {
-  // General asserions
+  // General asserions, general asserions will not wait for any conditions
   // const value = 5
   // expect(value).toEqual(5)
 
@@ -124,11 +124,16 @@ test('Assertions',async ({page}) => {
   const buttonText = await basicFormButton.textContent()
   expect(buttonText).toEqual("Submit")
 
-  // Locator asserions
+  // Locator asserions, locator asserions will wait for 5 seconds by default
   await expect(basicFormButton).toHaveText('Submit')
 
   // Soft assertions - test can continue when assertion failed
   await expect.soft(basicFormButton).toHaveText('Submit123')
   await basicFormButton.click() // - test will click on th ebutton despite assertion failed
 })
-safasdfasdfasdfsafasdf
+
+test('Auto waiting',async ({page}) => {
+  // https://playwright.dev/docs/actionability
+
+  
+})
